@@ -2,7 +2,7 @@
 	var app = angular.module('listo', []);
 
 	// Sample list for testing
-	var list = [
+	var sampleList = [
 	{
 		name: 'some tasty bread',
 	},
@@ -11,6 +11,15 @@
 	}];
 
 	app.controller('ListController', function(){
-		this.data = list;
+		this.list = sampleList;
+	});
+
+	app.controller('EntryController', function(){
+		this.entry = "";
+
+		this.addNew = function(item) {
+			item.push({name: this.entry});
+			this.entry = "";
+		}
 	});
 })();

@@ -2,13 +2,18 @@
 <html ng-app="listo">
 <head>
 	<title>Listo</title>
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 </head>
 <body ng-controller="ListController as listCtrl">
 <ul class="list-group">
-  <li ng-repeat='item in listCtrl.data'>
+  <li ng-repeat='item in listCtrl.list'>
     {{item.name}}
   </li>
 </ul>
+<form name="entryForm" ng-controller="EntryController as entryCtrl"
+	ng-submit="entryCtrl.addNew(listCtrl.list)">
+	<input type="text" ng-model="entryCtrl.entry"></input>
+</form>
 
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
 <script type="text/javascript" src="app.js"></script>
