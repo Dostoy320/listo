@@ -1,22 +1,30 @@
 <!DOCTYPE html>
-<html ng-app="listo">
+<html lang="en" ng-app="listo">
 <head>
+	<meta charset="UTF-8">
 	<title>Listo</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1, user-scalable=no">
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="static/css/main/stylesheets/main.css">
 </head>
 <body ng-controller="ListController as listCtrl">
-<ul class="list-group">
-  <li ng-repeat='item in listCtrl.list'>
-    {{item.name}}
-  </li>
-</ul>
-<form name="entryForm" ng-controller="EntryController as entryCtrl"
-	ng-submit="entryCtrl.addNew(listCtrl.list)">
-	<input type="text" ng-model="entryCtrl.entry"></input>
-</form>
+<div id="container" class="container-fluid">
+	<div class="row">
+		<div class="col-xs-12 col-md-8">
+			<ul class="list-group">
+			  <li ng-repeat='item in listCtrl.list'>
+			    {{ item.name }}
+			  </li>
+			</ul>
+			<form name="entryForm" ng-controller="EntryController as entryCtrl"
+				ng-submit="entryForm.$valid && entryCtrl.addNew(listCtrl.list)" novalidate>
+				<input type="text" ng-model="entryCtrl.entry" required></input>
+			</form>
 
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
-<script type="text/javascript" src="app.js"></script>
-
+			<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+			<script type="text/javascript" src="app.js"></script>
+		</div>
+	</div>
+</div>
 </body>
 </html>

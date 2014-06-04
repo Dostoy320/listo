@@ -1,3 +1,6 @@
 nenv/
 node_modules/
 npm-debug.log
+npm-debug.log
+static/css/main/sass/
+static/css/main/config.rb
