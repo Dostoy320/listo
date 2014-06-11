@@ -1,0 +1,12 @@
+@import "compass/reset";
+
+
+form {
+	input {
+		border-radius: 5px;
+		border-color: #949494;
+	}
+	.ng-valid {
+		border-color: #5CFF82;
+	}
+}

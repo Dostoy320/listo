@@ -1,5 +1,5 @@
 (function(){
-	var app = angular.module('listo', []);
+	var listApp = angular.module('listo', []);
 
 	// Sample list for testing
 	var sampleList = [
@@ -10,11 +10,11 @@
 		name: 'some smelly cheese'
 	}];
 
-	app.controller('ListController', function(){
+	listApp.controller('ListController', function(){
 		this.list = sampleList;
 	});
 
-	app.controller('EntryController', function(){
+	listApp.controller('EntryController', function(){
 		this.entry = "";
 
 		this.addNew = function(item) {

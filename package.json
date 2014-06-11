@@ -1,0 +1,12 @@
+{
+	"name": "listo",
+	"description": "A list sharing app.",
+	"main": "server.js",
+	"version": "0.0.1",
+	"private": true,
+	"dependencies": {
+		"express": "4.4.2",
+		"mongoose": "3.8.12"
+	}
+
+}
