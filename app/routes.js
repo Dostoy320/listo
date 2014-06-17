@@ -16,7 +16,7 @@ module.exports = function(app) {
 	app.post('/api/list', function(req, res) {
 
 		List.create({
-			text : req.body.text,
+			text : req.body.name,
 			in_cart : false
 		}, function(err, list) {
 			if (err) {
@@ -29,6 +29,7 @@ module.exports = function(app) {
 				}
 				res.json(lists);
 			});
-		});
+			}
+		);
 	});
 };

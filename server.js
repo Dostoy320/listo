@@ -1,7 +1,8 @@
 var express = require('express');
+var bodyParser = require('body-parser');
 var app = express();
 var mongoose = require('mongoose');
-var port = process.env.PORT || 8080;
+var port = process.env.PORT || 8000;
 var database = require('./config/database');
 
 mongoose.connect(database.url);
@@ -12,7 +13,9 @@ mongoose.connect(database.url);
 var env = process.env.NODE_ENV || 'development';
 
 if ('development' == env) {
-	app.use(express.static(__dirname + '/public'));
+	app.use('/', express.static(__dirname + '/public'));
+	app.use(bodyParser.json());
+	app.use(bodyParser.urlencoded());
 }
 
 // End Config -----------------------------------
@@ -25,4 +28,4 @@ app.get('*', function(req, res) {
 
 app.listen(port);
 console.log("App listening on port " + port);
-console.log(env);
+console.log("Environment: " + env);
