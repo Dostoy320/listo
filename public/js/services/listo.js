@@ -5,7 +5,7 @@ listoService.factory('ListServ', function($http) {
 		get : function() {
 			return $http.get('/api/list');
 		},
-		create : function(listoData) {
+		post : function(listoData) {
 			return $http.post('/api/list', listoData);
 		},
 		delete : function(id) {
