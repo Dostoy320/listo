@@ -32,4 +32,24 @@ module.exports = function(app) {
 			}
 		);
 	});
+
+	app.delete('/api/list/:id', function(req, res) {
+
+		List.remove({
+			_id: req.params.id
+		}, function(err, list) {
+			if (err) {
+				res.send(err);
+			}
+
+			List.find(function(err, lists) {
+				if (err) {
+					res.send(err);
+				}
+				res.json(lists);
+			});
+		});
+
+
+	});
 };

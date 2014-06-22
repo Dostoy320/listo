@@ -16,5 +16,12 @@
 				$scope.list = data;
 			});
 		}
+
+		this.delItem = function(item) {
+			ListServ.delete(item).success(function(data){
+				$scope.list = data;
+			});
+		}
+
 	});
 })();

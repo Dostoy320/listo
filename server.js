@@ -1,5 +1,6 @@
 var express = require('express');
 var bodyParser = require('body-parser');
+var morgan = require('morgan');
 var app = express();
 var mongoose = require('mongoose');
 var port = process.env.PORT || 8000;
@@ -13,6 +14,7 @@ mongoose.connect(database.url);
 var env = process.env.NODE_ENV || 'development';
 
 if ('development' == env) {
+	app.use(morgan('short'));
 	app.use('/', express.static(__dirname + '/public'));
 	app.use(bodyParser.json());
 	app.use(bodyParser.urlencoded());

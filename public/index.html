@@ -12,7 +12,7 @@
 	<div class="row">
 		<div class="col-xs-12 col-md-8">
 			<ul class="list-group">
-			  <li ng-repeat='item in list'>
+			  <li ng-repeat='item in list' ng-click="listCtrl.delItem(item._id)">
 			    {{ item.text }}
 			  </li>
 			</ul>
