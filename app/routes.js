@@ -33,6 +33,26 @@ module.exports = function(app) {
 		);
 	});
 
+	app.post('/api/list/update/:id', function(req, res) {
+		List.update({
+			_id: req.params.id
+		}, {
+			text: req.body.name
+		}, function(err, numberAffected, raw) {
+			if (err) {
+				res.send(err);
+			}
+			console.log('Number affected: %d', numberAffected);
+
+			List.find(function(err, lists) {
+				if (err) {
+					res.send(err);
+				}
+				res.json(lists);
+			})
+		})
+	});
+
 	app.delete('/api/list/:id', function(req, res) {
 
 		List.remove({

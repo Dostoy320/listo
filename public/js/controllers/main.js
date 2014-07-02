@@ -17,6 +17,12 @@
 			});
 		}
 
+		this.updateItem = function(item) {
+			ListServ.update(item).success(function(data){
+				$scope.list = data;
+			})
+		}
+
 		this.delItem = function(item) {
 			ListServ.delete(item).success(function(data){
 				$scope.list = data;

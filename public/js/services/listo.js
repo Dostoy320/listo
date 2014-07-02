@@ -8,6 +8,9 @@ listoService.factory('ListServ', function($http) {
 		post : function(listoData) {
 			return $http.post('/api/list', listoData);
 		},
+		update : function(listoData) {
+			return $http.post('/api/list/update', listoData);
+		},
 		delete : function(id) {
 			return $http.delete('api/list/' + id);
 		}
